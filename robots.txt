@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://herve9005-blip.github.io/webpages/sitemap.xml
