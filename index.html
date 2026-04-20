@@ -1,0 +1,55 @@
+---
+title: Accueil
+description: Index des pages publiées
+---
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Webpages — Hervé Dubernet</title>
+  <meta name="description" content="Collection de pages HTML, landing pages et documentation Markdown.">
+  {% seo title=false %}
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📄</text></svg>">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Webpages</h1>
+      <p class="lede">Pages HTML, landing pages et documentation publiées sur GitHub Pages.</p>
+    </header>
+
+    <section>
+      <h2>Sections</h2>
+      <ul class="cards">
+        <li>
+          <a href="{{ '/pages/' | relative_url }}">
+            <h3>Pages HTML</h3>
+            <p>Pages statiques autonomes.</p>
+          </a>
+        </li>
+        <li>
+          <a href="{{ '/landings/' | relative_url }}">
+            <h3>Landing pages</h3>
+            <p>Mini-sites et pages de lancement.</p>
+          </a>
+        </li>
+        <li>
+          <a href="{{ '/docs/' | relative_url }}">
+            <h3>Documentation</h3>
+            <p>Notes et documents rédigés en Markdown.</p>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>
+        <a href="https://github.com/herve9005-blip/webpages">Source sur GitHub</a> ·
+        <a href="{{ '/sitemap.xml' | relative_url }}">Sitemap</a>
+      </p>
+    </footer>
+  </main>
+</body>
+</html>
