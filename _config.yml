@@ -1,0 +1,37 @@
+# Site
+title: Webpages
+description: Pages HTML, landing pages et documentation Markdown
+author: Hervé Dubernet
+url: "https://herve9005-blip.github.io"
+baseurl: "/webpages"
+lang: fr_FR
+
+# Jekyll
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+permalink: pretty
+
+# Plugins (auto-activés par GitHub Pages)
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+# Exclusions
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - .gitignore
+  - .github/
+  - vendor/
+  - node_modules/
+
+# SEO par défaut
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/og-default.png
