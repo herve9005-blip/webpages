@@ -1,0 +1,31 @@
+---
+title: Landing pages
+description: Mini-sites et pages de lancement
+---
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Landing pages — Webpages</title>
+  {% seo title=false %}
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <main class="container">
+    <p><a href="{{ '/' | relative_url }}">← Accueil</a></p>
+    <h1>Landing pages</h1>
+    <p class="lede">Mini-sites et pages de lancement. Créez un sous-dossier par landing dans <code>landings/</code> avec son propre <code>index.html</code>.</p>
+
+    <ul>
+      {% assign landing_indexes = site.static_files | where_exp: "f", "f.path contains '/landings/'" | where_exp: "f", "f.name == 'index.html'" %}
+      {% for page in landing_indexes %}
+        {% assign folder = page.path | remove: '/landings/' | remove: '/index.html' %}
+        {% if folder != '' %}
+          <li><a href="{{ page.path | relative_url | replace: 'index.html', '' }}">{{ folder }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </main>
+</body>
+</html>
