@@ -1,0 +1,28 @@
+---
+title: Pages HTML
+description: Index des pages HTML statiques
+---
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pages HTML — Webpages</title>
+  {% seo title=false %}
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <main class="container">
+    <p><a href="{{ '/' | relative_url }}">← Accueil</a></p>
+    <h1>Pages HTML</h1>
+    <p class="lede">Pages statiques autonomes. Déposez vos fichiers <code>.html</code> dans <code>pages/</code>.</p>
+
+    <ul>
+      {% assign html_pages = site.static_files | where_exp: "f", "f.path contains '/pages/'" | where_exp: "f", "f.extname == '.html'" %}
+      {% for page in html_pages %}
+        <li><a href="{{ page.path | relative_url }}">{{ page.basename }}</a></li>
+      {% endfor %}
+    </ul>
+  </main>
+</body>
+</html>
