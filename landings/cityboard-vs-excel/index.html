@@ -1,0 +1,337 @@
+---
+title: "Suivre un mandat municipal dans Excel : jusqu'où ça tient ?"
+description: "Comparatif honnête entre un tableur et un outil dédié comme CityBoard pour piloter les engagements de campagne d'une commune."
+image: /assets/img/og-cityboard-vs-excel.png
+---
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Suivre un mandat municipal dans Excel : jusqu'où ça tient ? — CityBoard</title>
+  {% seo title=false %}
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <style>
+    .hero {
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+      line-height: 1.2;
+      margin: 0 0 1rem;
+      letter-spacing: -0.02em;
+    }
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--muted);
+      margin: 0;
+    }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0 2.5rem;
+      font-size: .9375rem;
+    }
+    .compare-table th,
+    .compare-table td {
+      padding: .85rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .compare-table th {
+      background: var(--card-bg);
+      font-weight: 600;
+    }
+    .compare-table td:first-child {
+      font-weight: 500;
+    }
+    .yes { color: #059669; }
+    .no { color: #dc2626; }
+    .mid { color: #d97706; }
+    @media (prefers-color-scheme: dark) {
+      .yes { color: #34d399; }
+      .no { color: #f87171; }
+      .mid { color: #fbbf24; }
+    }
+    .callout {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+    }
+    .callout p:last-child { margin-bottom: 0; }
+    .cta {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin: 3rem 0 2rem;
+      text-align: center;
+    }
+    .cta h2 { margin-top: 0; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: .85rem 1.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: .5rem;
+      transition: opacity .15s ease;
+    }
+    .cta-btn:hover { opacity: .9; }
+    details {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: .75rem;
+    }
+    details[open] { background: var(--card-bg); }
+    summary {
+      cursor: pointer;
+      font-weight: 500;
+      padding: .25rem 0;
+    }
+    details p:first-of-type { margin-top: .75rem; }
+    .breadcrumb {
+      font-size: .875rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    .breadcrumb a { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <nav class="breadcrumb">
+      <a href="{{ '/' | relative_url }}">Accueil</a> ›
+      <a href="{{ '/landings/' | relative_url }}">Landings</a> ›
+      <span>CityBoard vs Excel</span>
+    </nav>
+
+    <section class="hero">
+      <h1>Suivre un mandat municipal dans Excel : jusqu'où ça tient ?</h1>
+      <p>Un comparatif honnête entre le tableur que vous utilisez déjà et un outil dédié, pour piloter les engagements de campagne et les grands projets d'une commune.</p>
+    </section>
+
+    <p>
+      Beaucoup de communes suivent leurs engagements de mandat dans un fichier Excel partagé.
+      C'est gratuit, c'est connu, ça démarre en trente secondes. Pour les six premiers mois d'un mandat,
+      ça suffit largement. La vraie question se pose plus tard : <strong>à quel moment le tableur devient-il
+      un frein, et pas un outil&nbsp;?</strong> Cette page tente une réponse factuelle, sans caricature.
+    </p>
+
+    <h2>Ce qu'Excel fait bien</h2>
+    <p>
+      Autant commencer par là. Un tableur reste imbattable sur plusieurs points&nbsp;:
+    </p>
+    <ul>
+      <li><strong>Zéro coût, zéro formation.</strong> Toute l'équipe sait s'en servir, plus ou moins.</li>
+      <li><strong>Flexibilité immédiate.</strong> Ajouter une colonne «&nbsp;commentaire adjoint&nbsp;» prend trois secondes.</li>
+      <li><strong>Travail hors-ligne, export papier.</strong> Un maire peut imprimer son tableau pour un comité de pilotage.</li>
+      <li><strong>Calculs et synthèses ponctuelles.</strong> Une somme, un graphique, un tableau croisé&nbsp;: Excel reste roi.</li>
+    </ul>
+    <p>
+      Si votre commune a une quinzaine d'engagements, que les mêmes deux ou trois personnes
+      mettent le fichier à jour, et que vous n'avez pas besoin de le montrer à d'autres que le CODIR&nbsp;:
+      n'ajoutez rien, Excel suffit.
+    </p>
+
+    <h2>Là où ça commence à coincer</h2>
+    <p>
+      À mesure que le mandat avance, plusieurs difficultés apparaissent, de façon assez prévisible&nbsp;:
+    </p>
+
+    <h3>1. La version « à jour » devient floue</h3>
+    <p>
+      Le DGS envoie le fichier par mail avant le CODIR. Le DGA éducation y ajoute ses dernières
+      informations et le renvoie. L'adjoint finances télécharge une version plus ancienne depuis
+      le drive partagé, la met à jour de son côté. Trois semaines plus tard, plus personne ne sait
+      quelle version fait foi. La consolidation prend une demi-journée de travail du directeur de cabinet
+      avant chaque séminaire de majorité.
+    </p>
+
+    <h3>2. L'historique se perd</h3>
+    <p>
+      Qui a reporté l'échéance du projet école de musique, et pourquoi&nbsp;? Une cellule modifiée
+      ne laisse aucune trace. Deux ans après, quand le projet revient en discussion, impossible de
+      reconstituer la chronologie des décisions. C'est particulièrement sensible en fin de mandat,
+      au moment du bilan électoral.
+    </p>
+
+    <h3>3. La granularité par adjoint ne tient pas</h3>
+    <p>
+      Chaque adjoint voudrait son tableau à lui, avec seulement ses projets, dans sa logique à lui.
+      En pratique on se retrouve avec un onglet par adjoint, ou un filtre par délégation, qui se
+      désynchronise du tableau maître. Les chiffres présentés en conseil municipal ne collent plus
+      avec ceux de la commission ad hoc.
+    </p>
+
+    <h3>4. Le reporting aux administrés est artisanal</h3>
+    <p>
+      Le bulletin municipal, le site de la mairie, le rapport de mi-mandat&nbsp;: chacun redemande
+      les mêmes données, dans un format différent, à deux mois d'intervalle. Le service communication
+      passe un temps considérable à ressaisir ce qui existe déjà dans le tableur.
+    </p>
+
+    <h3>5. Le RGPD et l'archivage restent à traiter</h3>
+    <p>
+      Un fichier Excel qui circule en pièce jointe n'a ni gestion des accès, ni journal des modifications,
+      ni politique de rétention. Dès qu'il contient des éléments sensibles (noms de riverains concernés,
+      montants non publics, notes politiques), la conformité devient difficile à démontrer.
+    </p>
+
+    <h2>Comparatif en un coup d'œil</h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Critère</th>
+          <th>Excel partagé</th>
+          <th>CityBoard</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Coût de démarrage</td>
+          <td class="yes">Nul</td>
+          <td class="mid">Abonnement mensuel</td>
+        </tr>
+        <tr>
+          <td>Formation nécessaire</td>
+          <td class="yes">Aucune</td>
+          <td class="mid">30 min par utilisateur</td>
+        </tr>
+        <tr>
+          <td>Version unique, à jour en temps réel</td>
+          <td class="no">Non</td>
+          <td class="yes">Oui</td>
+        </tr>
+        <tr>
+          <td>Historique des modifications</td>
+          <td class="no">Non</td>
+          <td class="yes">Oui, par engagement</td>
+        </tr>
+        <tr>
+          <td>Vues par adjoint / délégation</td>
+          <td class="mid">Onglets ou filtres</td>
+          <td class="yes">Vues filtrées natives</td>
+        </tr>
+        <tr>
+          <td>Tableau de bord pour le maire</td>
+          <td class="mid">Graphiques à maintenir</td>
+          <td class="yes">Automatique</td>
+        </tr>
+        <tr>
+          <td>Publication sur site de la mairie</td>
+          <td class="no">Ressaisie manuelle</td>
+          <td class="yes">Widget public intégrable</td>
+        </tr>
+        <tr>
+          <td>Gestion des accès</td>
+          <td class="no">Limitée</td>
+          <td class="yes">Par rôle et par projet</td>
+        </tr>
+        <tr>
+          <td>Hébergement conforme (RGPD, UE)</td>
+          <td class="mid">Selon votre SI</td>
+          <td class="yes">Frankfurt (UE)</td>
+        </tr>
+        <tr>
+          <td>Export du contenu</td>
+          <td class="yes">Natif</td>
+          <td class="yes">PDF, Excel, CSV</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <p>
+        <strong>Le point le plus sous-estimé&nbsp;:</strong> ce n'est pas la richesse fonctionnelle
+        qui fait basculer une commune. C'est le temps de consolidation avant chaque comité. Quand le DGS
+        passe trois heures à compiler au lieu de préparer les arbitrages, le ROI d'un outil dédié
+        se calcule en semaines, pas en années.
+      </p>
+    </div>
+
+    <h2>Un cas concret&nbsp;: commune de 20&nbsp;000 habitants</h2>
+    <p>
+      Prenons une situation type&nbsp;: une commune de la strate 20&nbsp;000 – 30&nbsp;000 habitants,
+      avec environ 80 engagements de campagne regroupés en 12 chantiers prioritaires, un CODIR mensuel,
+      un séminaire de majorité trimestriel, un rapport de mi-mandat prévu à mi-parcours.
+    </p>
+    <p>
+      <strong>Avec un tableur&nbsp;:</strong> une demi-journée par mois de consolidation pour le DGS ou
+      le directeur de cabinet, un onglet qui finit par contenir 40 colonnes, une ressaisie pour chaque
+      support de communication, des versions divergentes qui cohabitent sur le drive. Sur cinq ans&nbsp;:
+      environ 30 jours ouvrés de travail administratif pur.
+    </p>
+    <p>
+      <strong>Avec un outil dédié&nbsp;:</strong> chaque adjoint met à jour ses engagements dans son espace,
+      le tableau de bord du maire est à jour en continu, le widget public peut être intégré au site de la
+      mairie, les exports sont générés à la demande. Le DGS concentre son temps sur la préparation des
+      arbitrages, pas sur la saisie.
+    </p>
+
+    <h2>Quand rester sur Excel</h2>
+    <p>
+      Il y a de vrais cas où changer d'outil n'a pas de sens&nbsp;:
+    </p>
+    <ul>
+      <li>Communes de moins de 3&nbsp;500 habitants avec une dizaine d'engagements bien identifiés.</li>
+      <li>Collectivités dont le fichier existant est déjà lu et utilisé par tout le monde sans friction.</li>
+      <li>Équipes qui n'ont ni besoin de reporting public, ni d'historique partagé au-delà du cercle restreint.</li>
+    </ul>
+    <p>
+      Dans ces cas, l'investissement d'un outil dédié ne se justifie pas. La flexibilité d'Excel
+      reste supérieure à la structure imposée par n'importe quel logiciel.
+    </p>
+
+    <div class="cta">
+      <h2>Voir ce que ça donne concrètement</h2>
+      <p>CityBoard propose une démonstration avec des données fictives d'une commune type. Vous pouvez naviguer dans les tableaux de bord, les vues par adjoint et l'interface publique, sans inscription.</p>
+      <a class="cta-btn" href="https://cityboard.fr/demo" rel="noopener">Accéder à la démo</a>
+    </div>
+
+    <h2>Questions fréquentes</h2>
+
+    <details>
+      <summary>Peut-on importer un fichier Excel existant ?</summary>
+      <p>Oui. L'import d'un tableau d'engagements depuis un fichier .xlsx est proposé en standard, avec une étape de mappage des colonnes. La plupart des communes démarrent en important leur fichier actuel.</p>
+    </details>
+
+    <details>
+      <summary>Où sont hébergées les données ?</summary>
+      <p>Sur une infrastructure européenne (Frankfurt, UE). L'hébergement est conforme au RGPD, et un DPA conforme à l'article 28 peut être signé avec la collectivité.</p>
+    </details>
+
+    <details>
+      <summary>Est-ce adapté aux communes sous convention de mutualisation ?</summary>
+      <p>Oui. CityBoard distingue la collectivité membre et l'EPCI, et permet des vues consolidées ou cloisonnées selon les conventions existantes.</p>
+    </details>
+
+    <details>
+      <summary>Que se passe-t-il si on veut arrêter ?</summary>
+      <p>L'ensemble des données reste exportable en .xlsx et .csv à tout moment. Aucun verrouillage propriétaire sur le contenu saisi.</p>
+    </details>
+
+    <details>
+      <summary>Qui l'utilise aujourd'hui ?</summary>
+      <p>Des communes pilotes sur la strate 5&nbsp;000 – 40&nbsp;000 habitants, dans le cadre d'une phase de déploiement progressif. La liste des références est communiquée sur demande.</p>
+    </details>
+
+    <footer>
+      <p>
+        <a href="{{ '/landings/' | relative_url }}">← Toutes les landings</a> ·
+        <a href="https://cityboard.fr">cityboard.fr</a>
+      </p>
+    </footer>
+  </main>
+</body>
+</html>
